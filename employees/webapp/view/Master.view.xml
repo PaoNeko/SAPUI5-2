@@ -1,0 +1,58 @@
+<mvc:View   controllerName="com.logaligroup.employees.controller.Master"
+            xmlns="sap.m"
+            xmlns:f="sap.f"
+            xmlns:mvc="sap.ui.core.mvc">
+    
+    <f:DynamicPage id="IDGenDynamicPage" >
+        <f:title>
+            <f:DynamicPageTitle id="IDGenDynamicPageTitle" >
+                <f:heading>
+                    <Title id="IDGenTitle"  
+                            text="{i18n>title}"
+                            wrapping="true"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+        </f:header>
+
+        <f:content>
+            <Table id="IDGenTable" 
+                    items="{employees>/Employees}"
+                    growing="true">
+
+                <columns>
+                    <Column id="IDGenColumn1" width="6rem">
+                        <Label id="IDGenLabel1" text="{i18n>employeeId}"/>
+                    </Column>
+                    <Column id="IDGenColumn2" width="20rem">
+                        <Label id="IDGenLabel2" text="{i18n>fullName}"/>
+                    </Column>
+                    <Column id="IDGenColumn3" width="8rem">
+                        <Label id="IDGenLabel3" text="{i18n>country}"/>
+                    </Column>
+                    <Column id="IDGenColumn4" width="8rem">
+                        <Label id="IDGenLabel4" text="{i18n>city}"/>
+                    </Column>
+                    <Column id="IDGenColumn5" width="8rem">
+                        <Label id="IDGenLabel5" text="{i18n>postalCode}"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="IDGenColumnListItem" >
+                        <cells>
+                            <ObjectIdentifier id="IDGenObjectIdentifier"  title="{employees>EmployeeID}"/>
+                            <Text id="IDGenText1" text="{employees>FirstName} {employees>LastName}"></Text>
+                            <Text id="IDGenText2" text="{employees>Country}"></Text>
+                            <Text id="IDGenText3" text="{employees>City}"></Text>
+                            <Text id="IDGenText4" text="{employees>PostalCode}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+
+</mvc:View>
