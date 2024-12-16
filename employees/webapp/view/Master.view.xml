@@ -1,0 +1,128 @@
+<mvc:View   controllerName="com.logaligroup.employees.controller.Master"
+            xmlns="sap.m"
+            xmlns:f="sap.f"
+            xmlns:core="sap.ui.core"
+            xmlns:filter="sap.ui.comp.filterbar"
+            xmlns:mvc="sap.ui.core.mvc">
+    
+    <f:DynamicPage id="idDynamicPage" >
+
+        <f:title>
+
+            <f:DynamicPageTitle id="idDynamicPageTitle" >
+               
+                <f:heading>
+
+                    <Title id="idEmployeesTitle"  
+                            text="{i18n>title}"
+                            wrapping="true"/>
+                </f:heading>
+
+            </f:DynamicPageTitle>
+
+        </f:title>
+
+        <f:header>
+
+            <f:DynamicPageHeader id="idDynamicPageHeader">
+
+                <filter:FilterBar id="idFilterBar" 
+                                  search="onFilterBarSearch"
+                                  clear="onFilterBarClear"
+                                  showClearOnFB="false"
+                                  showGoOnFB="false"
+                                  showFilterConfiguration="false"
+                                  useToolbar="false"
+                                  >
+                    
+                    <filter:filterGroupItems>
+                        
+                        <filter:FilterGroupItem id="idFilterGroupItem"
+                                                groupName="filters"
+                                                name="filterA"
+                                                label="{i18n>employee}"
+                                                visibleInFilterBar="true">
+                            <filter:control>
+                                <Input id="idInput"
+                                        value="{filters>/Employee}"
+                                        submit="onFilterGeneric"/>
+                            </filter:control>
+
+                        </filter:FilterGroupItem>
+
+                        <filter:FilterGroupItem id="idFilterGroupItem2"
+                                                groupName="filters"
+                                                name="filterB"
+                                                label="{i18n>country}"
+                                                visibleInFilterBar="true">
+                            <filter:control>
+                                <ComboBox   id="IDGenComboBox" 
+                                            items="{countries>/Countries}"
+                                            showSecondaryValues="true"
+                                            selectedKey="{filters>/Country}"
+                                            change="onFilterGeneric">
+                                    
+                                    <core:ListItem  id="IDGenListItem" 
+                                                    key="{countries>code}" 
+                                                    text="{countries>country}"
+                                                    additionalText="{countries>code}"/>
+                                
+                                </ComboBox>
+
+                            </filter:control>
+
+                        </filter:FilterGroupItem>
+
+                    </filter:filterGroupItems>
+
+                </filter:FilterBar>
+
+            </f:DynamicPageHeader>
+
+        </f:header>
+
+        <f:content>
+
+            <Table id="table"
+                    items="{employees>/Employees}"
+                    growing="true">
+
+                <columns>
+                    <Column id="IDGenColumn1" width="6rem">
+                        <Label id="IDGenLabel"  text="{i18n>employeeId}"/>
+                    </Column>
+
+                    <Column id="IDGenColumn2"  width="20rem">
+                        <Label id="IDGenLabel1"  text="{i18n>fullName}"/>
+                    </Column>
+
+                    <Column id="IDGenColumn3"  width="8rem">
+                        <Label id="IDGenLabel2"  text="{i18n>country}"/>
+                    </Column>
+
+                    <Column id="IDGenColumn4"  width="8rem">
+                        <Label id="IDGenLabel3"  text="{i18n>city}"/>
+                    </Column>
+
+                    <Column id="IDGenColumn5"  width="8rem">
+                        <Label id="IDGenLabel4"  text="{i18n>postalCode}"/>
+                    </Column>
+
+                </columns>
+
+                <items>
+                    <ColumnListItem id="idColumnListItem" >
+                        <cells>
+                            <ObjectIdentifier id="idObjectIdentifier" title="{employees>EmployeeID}"/>
+                            <Text id="IDGenText1"  text="{employees>FirstName} {employees>LastName}"></Text>
+                            <Text id="IDGenText2"  text="{employees>Country}"></Text>
+                            <Text id="IDGenText3"  text="{employees>City}"></Text>
+                            <Text id="IDGenText4"  text="{employees>PostalCode}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+
+</mvc:View>
