@@ -8,6 +8,9 @@ import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
 import Table from "sap/m/Table";
 import ListBinding from "sap/ui/model/ListBinding";
+import Event from "sap/ui/base/Event";
+import ObjectListItem from "sap/m/ObjectListItem";
+import Context from "sap/ui/model/Context";
 
 /**
  * @namespace com.logaligroup.employees.controller
@@ -16,15 +19,8 @@ export default class Master extends BaseController {
 
     /*eslint-disable @typescript-eslint/no-empty-function*/
     public onInit(): void {
-        this.loadEmployees();
         this.loadCountries();
         this.loadFilter();
-    }
-
-    private loadEmployees () : void {
-        const model = new JSONModel();
-        model.loadData("../model/Employees.json");
-        this.setModel(model, "employees");
     }
 
     private loadCountries () : void {
@@ -94,5 +90,20 @@ export default class Master extends BaseController {
         sCountry = filterModel.getProperty("/Country") as string;
         console.log(sEmployee);
         console.log(sCountry);
+    }
+
+    public onNavToDetails (event: Event) : void {
+        //console.log("EStoy");
+        const item = event.getSource() as ObjectListItem;
+        const bindingContext = item.getBindingContext("employees") as Context;
+        const id = bindingContext.getProperty("EmployeeID");
+        //console.log(bindingContext.getObject());
+        //console.log(id);
+        //const path = bindingContext.getPath();
+
+        const router = this.getRouter();
+        router.navTo("RouteDetails",{
+            index: parseInt(id) - 1
+        })
     }
 }

@@ -45,7 +45,7 @@
                             <filter:control>
                                 <Input id="idInput"
                                         value="{filters>/Employee}"
-                                        submit="onFilterGeneric"/>
+                                        liveChange="onFilterGeneric"/>
                             </filter:control>
 
                         </filter:FilterGroupItem>
@@ -111,7 +111,9 @@
                 </columns>
 
                 <items>
-                    <ColumnListItem id="idColumnListItem" >
+                    <ColumnListItem id="idColumnListItem" 
+                                    type="Navigation"
+                                    press="onNavToDetails">
                         <cells>
                             <ObjectIdentifier id="idObjectIdentifier" title="{employees>EmployeeID}"/>
                             <Text id="IDGenText1"  text="{employees>FirstName} {employees>LastName}"></Text>

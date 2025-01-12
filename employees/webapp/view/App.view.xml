@@ -4,6 +4,9 @@
 
     <Shell id="shell">
         <App id="app">
+            <pages>
+            
+            </pages>
         </App>
     </Shell>
 

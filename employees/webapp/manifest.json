@@ -74,18 +74,32 @@
         {
           "name": "RouteMaster",
           "pattern": ":?query:",
-          "target": [
-            "TargetMaster"
+          "target": "TargetMaster"
+        },
+        {
+          "name": "RouteDetails",
+          "pattern": "Employees({index})",
+          "target":[
+            "TargetMaster",
+            "TargetDetails"
           ]
         }
       ],
       "targets": {
+        "TargetContent": {
+          "viewName": "Container"
+        },
         "TargetMaster": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Master",
-          "viewName": "Master"
+          "parent": "TargetContent",
+          "viewName": "Master",
+          "controlId": "container-fcl",
+          "controlAggregation": "beginColumnPages"
+        },
+        "TargetDetails": {
+          "parent": "TargetContent",
+          "viewName": "Details",
+          "controlId": "container-fcl",
+          "controlAggregation": "midColumnPages"
         }
       }
     },

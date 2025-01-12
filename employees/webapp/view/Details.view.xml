@@ -1,0 +1,52 @@
+<mvc:View   controllerName="com.logaligroup.employees.controller.Details"
+            xmlns="sap.m"
+            xmlns:uxap="sap.uxap"
+            xmlns:core="sap.ui.core"
+            xmlns:mvc="sap.ui.core.mvc">
+
+    <uxap:ObjectPageLayout id="IDGenObjectPageLayout" >
+
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="_IDGenObjectPageDynamicHeaderTitle" >
+                <uxap:expandedContent>
+                
+                </uxap:expandedContent>
+
+                <uxap:snappedContent>
+                
+                </uxap:snappedContent>
+                
+
+                <uxap:expandedHeading>
+                    <Title  id="IDGenTitle" 
+                            text="{employees>FirstName} {employees>LastName} ({employees>EmployeeID})"/>
+                </uxap:expandedHeading>
+                
+                <uxap:snappedHeading>
+                    <FlexBox    id="IDGenFlexBox" 
+                                fitContainer="true"
+                                alignItems="Center">
+                        
+                        <Title  id="IDGenTitle2" 
+                            text="{employees>FirstName} {employees>LastName} ({employees>EmployeeID})"/>
+
+                    </FlexBox>
+                </uxap:snappedHeading>
+
+            </uxap:ObjectPageDynamicHeaderTitle>
+
+        </uxap:headerTitle>
+
+
+        <uxap:headerContent>
+
+        </uxap:headerContent>
+
+
+        <uxap:sections>
+
+        </uxap:sections>
+
+    </uxap:ObjectPageLayout>
+
+</mvc:View>
