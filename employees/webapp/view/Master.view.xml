@@ -29,11 +29,11 @@
                 <filter:FilterBar id="idFilterBar" 
                                   search="onFilterBarSearch"
                                   clear="onFilterBarClear"
-                                  showClearOnFB="false"
-                                  showGoOnFB="false"
+                                  showClearOnFB="true">
+                                <!--showGoOnFB="false"
                                   showFilterConfiguration="false"
-                                  useToolbar="false"
-                                  >
+                                  useToolbar="false"-->
+                                  
                     
                     <filter:filterGroupItems>
                         
@@ -84,7 +84,7 @@
         <f:content>
 
             <Table id="table"
-                    items="{employees>/Employees}"
+                    items="{northwind>/Employees}"
                     growing="true">
 
                 <columns>
@@ -115,11 +115,11 @@
                                     type="Navigation"
                                     press="onNavToDetails">
                         <cells>
-                            <ObjectIdentifier id="idObjectIdentifier" title="{employees>EmployeeID}"/>
-                            <Text id="IDGenText1"  text="{employees>FirstName} {employees>LastName}"></Text>
-                            <Text id="IDGenText2"  text="{employees>Country}"></Text>
-                            <Text id="IDGenText3"  text="{employees>City}"></Text>
-                            <Text id="IDGenText4"  text="{employees>PostalCode}"></Text>
+                            <ObjectIdentifier id="idObjectIdentifier" title="{northwind>EmployeeID}"/>
+                            <Text id="IDGenText1"  text="{northwind>FirstName} {northwind>LastName}"></Text>
+                            <Text id="IDGenText2"  text="{northwind>Country}"></Text>
+                            <Text id="IDGenText3"  text="{northwind>City}"></Text>
+                            <Text id="IDGenText4"  text="{northwind>PostalCode}"></Text>
                         </cells>
                     </ColumnListItem>
                 </items>

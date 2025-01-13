@@ -10,7 +10,7 @@ import Table from "sap/m/Table";
 import ListBinding from "sap/ui/model/ListBinding";
 import Event from "sap/ui/base/Event";
 import ObjectListItem from "sap/m/ObjectListItem";
-import Context from "sap/ui/model/Context";
+import Context from "sap/ui/model/odata/v2/Context";
 
 /**
  * @namespace com.logaligroup.employees.controller
@@ -95,7 +95,7 @@ export default class Master extends BaseController {
     public onNavToDetails (event: Event) : void {
         //console.log("EStoy");
         const item = event.getSource() as ObjectListItem;
-        const bindingContext = item.getBindingContext("employees") as Context;
+        const bindingContext = item.getBindingContext("northwind") as Context;
         const id = bindingContext.getProperty("EmployeeID");
         //console.log(bindingContext.getObject());
         //console.log(id);
@@ -103,7 +103,7 @@ export default class Master extends BaseController {
 
         const router = this.getRouter();
         router.navTo("RouteDetails",{
-            index: parseInt(id) - 1
+            index: id
         })
     }
 }

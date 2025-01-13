@@ -37,6 +37,16 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - path: /v2
+            url: https://services.odata.org
+            destination: Northwind
+            authenticationType: NoAuthentication
+          - path: /sap
+            url: http://erp13.sap4practice.com:9037
+            client: '001'
+            destination: ERP13
+            authenticationType: BasicAuthentication
 builder:
   customTasks:
     - name: ui5-tooling-transpile-task
